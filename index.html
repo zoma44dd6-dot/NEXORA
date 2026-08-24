@@ -1,149 +1,2083 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090a08">
-<meta name="description" content="NEXORA — Where Developers Build What's Next.">
-<title>NEXORA — Build What's Next</title>
-<style>
-:root{--bg:#070807;--panel:#10120f;--panel2:#151812;--text:#f4f3ed;--muted:#92958a;--line:#292d26;--accent:#d9ff55;--accent2:#9dd7ff;--danger:#ff7b7b;--shadow:0 30px 100px #0009}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% -10%,#29371b 0,transparent 32%),var(--bg);color:var(--text);font:14px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;transition:.25s}
-body.light{--bg:#f4f5ef;--panel:#fff;--panel2:#eceee7;--text:#11130f;--muted:#666b60;--line:#d9ddd1;--shadow:0 25px 80px #66705c33;background:radial-gradient(circle at 80% -10%,#dce9a9 0,transparent 32%),var(--bg)}
-button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,calc(100% - 34px));margin:auto}
-.nav{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px}.logo{font-size:24px;font-weight:950;letter-spacing:-1.6px;color:var(--text);text-decoration:none}.logo i{font-style:normal;color:var(--accent);font-size:13px;margin-left:3px}.navlinks{display:flex;align-items:center;gap:9px}.navlinks a{color:var(--muted);text-decoration:none;padding:9px}.btn{border:1px solid transparent;background:var(--accent);color:#080908;font-weight:850;padding:11px 16px;border-radius:5px}.btn.dark{background:var(--panel2);border-color:var(--line);color:var(--text)}.btn.ghost{background:transparent;border-color:var(--line);color:var(--muted)}.btn.danger{background:#351719;border-color:#5c282b;color:#ffb4b4}
-.hero{padding:105px 0 85px}.eyebrow{font-size:10px;letter-spacing:.21em;color:#777b70;font-weight:900}.hero h1{font-size:clamp(68px,12vw,145px);line-height:.82;letter-spacing:-.095em;margin:20px 0 26px;max-width:1050px}.serif{font-family:Georgia,serif;font-weight:400}.lead{font-size:19px;color:var(--muted);max-width:650px}.actions{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}.preview{margin-top:65px;border:1px solid var(--line);background:linear-gradient(145deg,var(--panel2),var(--panel));box-shadow:var(--shadow);max-width:850px}.previewbar{padding:13px 16px;border-bottom:1px solid var(--line);color:var(--muted);font:11px ui-monospace,monospace}.code{padding:28px;font:15px/2 ui-monospace,SFMono-Regular,Menlo,monospace}.g{color:var(--accent)}.b{color:var(--accent2)}.o{color:#efbd8e}.features{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line)}.feature{padding:42px 28px;border-right:1px solid var(--line)}.feature:last-child{border-right:0}.feature h2{font-size:28px;letter-spacing:-.04em;margin:52px 0 8px}.muted{color:var(--muted)}.manifesto{text-align:center;padding:125px 0}.manifesto h2{font-size:clamp(42px,6vw,76px);line-height:.95;letter-spacing:-.07em}.footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
-#app{display:none}.appmain{padding:48px 0}.dash{display:flex;align-items:end;justify-content:space-between;gap:25px}.dash h1{font-size:clamp(45px,7vw,80px);letter-spacing:-.08em;line-height:.9;margin:8px 0}.grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-top:35px}.card{background:var(--panel);border:1px solid var(--line);padding:25px;min-height:170px}.num{font-size:50px;letter-spacing:-.08em;margin-top:35px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0}.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.project{background:var(--panel);border:1px solid var(--line);padding:23px}.project h3{font-size:25px;letter-spacing:-.04em;margin:12px 0 7px}.tag{display:inline-block;background:#192013;color:#c9ed62;padding:4px 7px;margin:3px 3px 0 0;border-radius:3px;font-size:10px}.section{margin-top:42px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px}.sectionhead h2{font-size:28px;letter-spacing:-.04em}.input{width:100%;padding:13px 14px;background:var(--bg);color:var(--text);border:1px solid var(--line);outline:none;border-radius:4px}.input:focus{border-color:#777d6d}.search{width:270px}
-.modalbg{display:none;position:fixed;inset:0;background:#000b;backdrop-filter:blur(14px);z-index:50;align-items:center;justify-content:center;padding:17px}.modal{width:min(520px,100%);max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);padding:30px}.modal h2{font-size:42px;letter-spacing:-.07em;line-height:.95;margin:8px 0 18px}.close{float:right;background:none;border:0;color:var(--muted);font-size:25px}.field{margin:9px 0}.field label{display:block;font-size:11px;color:var(--muted);margin-bottom:5px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:16px 0}.toast{display:none;position:fixed;right:18px;bottom:18px;background:var(--text);color:var(--bg);padding:12px 16px;border-radius:5px;font-weight:800;z-index:80}.empty{padding:35px 10px;color:var(--muted);text-align:center;border:1px dashed var(--line)}
-.rtl{direction:rtl}.rtl .navlinks{flex-direction:row-reverse}.rtl .sectionhead,.rtl .dash{flex-direction:row-reverse}
-.authscreen{display:none;min-height:100vh;align-items:center;justify-content:center;padding:20px}.authbox{width:min(440px,100%);background:var(--panel);border:1px solid var(--line);padding:35px;box-shadow:var(--shadow)}.authbox h2{font-size:50px;letter-spacing:-.08em;line-height:.9;margin:10px 0 20px}.demo{margin-top:15px;padding:12px;background:var(--panel2);border:1px solid var(--line);font-size:12px;color:var(--muted)}
-@media(max-width:780px){.wrap{width:min(100% - 24px,1180px)}.navlinks a{display:none}.features,.grid,.projects{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid var(--line)}.feature:last-child{border-bottom:0}.hero{padding:70px 0}.hero h1{font-size:70px}.dash{display:block}.dash .btn{margin-top:18px}.search{width:100%}.footer{flex-direction:column}.nav{height:auto;min-height:70px}.navlinks{flex-wrap:wrap;justify-content:flex-end}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXORA — Build What Matters.</title>
+
+  <meta
+    name="description"
+    content="NEXORA builds intelligent AI solutions, software, automation and digital products."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #070b18;
+      color: #eef2ff;
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body.arabic {
+      font-family: "Cairo", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: auto;
+    }
+
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    .background-glow {
+      position: fixed;
+      pointer-events: none;
+      z-index: -2;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: .25;
+    }
+
+    .glow-one {
+      width: 420px;
+      height: 420px;
+      background: #3455ff;
+      top: -180px;
+      right: -120px;
+    }
+
+    .glow-two {
+      width: 350px;
+      height: 350px;
+      background: #7a35ff;
+      bottom: 5%;
+      left: -180px;
+    }
+
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      opacity: .22;
+
+      background-image:
+        linear-gradient(rgba(110,130,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110,130,255,.04) 1px, transparent 1px);
+
+      background-size: 70px 70px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 80%
+      );
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+
+      background: rgba(7,11,24,.72);
+      backdrop-filter: blur(20px);
+
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    nav {
+      height: 82px;
+
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .logo {
+      width: 155px;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    .logo-text {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .logo-text span {
+      color: #7081ff;
+    }
+
+    .nav-links {
+      margin-left: auto;
+
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      color: #9ca7bf;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .language-btn {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.03);
+      color: #d9deef;
+
+      padding: 10px 13px;
+      border-radius: 10px;
+
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .nav-cta {
+      padding: 12px 17px;
+
+      border-radius: 11px;
+
+      background:
+        linear-gradient(
+          110deg,
+          rgba(76,103,255,.25),
+          rgba(132,74,255,.18)
+        );
+
+      border: 1px solid rgba(108,125,255,.35);
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .menu-button {
+      display: none;
+
+      border: 0;
+      background: none;
+      color: white;
+
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 900px;
+
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+
+      align-items: center;
+      gap: 20px;
+
+      padding-top: 100px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      color: #8490aa;
+
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #687dff;
+
+      box-shadow:
+        0 0 15px #6378ff,
+        0 0 30px #6378ff55;
+    }
+
+    .hero h1 {
+      margin: 25px 0 30px;
+
+      font-size: clamp(65px, 8vw, 112px);
+      line-height: .87;
+
+      font-weight: 800;
+
+      letter-spacing: -7px;
+
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      color: #7181ff;
+
+      text-shadow:
+        0 0 35px rgba(98,116,255,.2);
+    }
+
+    .hero-description {
+      max-width: 570px;
+
+      color: #9ba6bf;
+
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+
+      margin-top: 32px;
+    }
+
+    .button {
+      padding: 15px 21px;
+
+      border-radius: 13px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      transition: .3s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background:
+        linear-gradient(
+          110deg,
+          #4e6cff,
+          #8953ff
+        );
+
+      box-shadow:
+        0 15px 45px rgba(78,100,255,.2);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,.11);
+
+      background: rgba(255,255,255,.025);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+
+      margin-top: 42px;
+
+      color: #68748d;
+
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .hero-meta i {
+      width: 3px;
+      height: 3px;
+
+      border-radius: 50%;
+      background: #52617e;
+    }
+
+
+    /* =========================
+       HERO VISUAL
+    ========================= */
+
+    .hero-visual {
+      height: 540px;
+
+      position: relative;
+
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-orb {
+      width: 330px;
+      height: 330px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 28%,
+          #253a78,
+          #0b1021 65%
+        );
+
+      box-shadow:
+        0 0 80px rgba(62,88,255,.2),
+        inset -30px -25px 70px rgba(120,80,255,.15);
+
+      display: grid;
+      place-items: center;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-logo {
+      width: 180px;
+
+      filter:
+        drop-shadow(0 0 30px rgba(99,120,255,.55));
+    }
+
+    .hero-logo-fallback {
+      font-size: 75px;
+      font-weight: 800;
+      letter-spacing: -4px;
+
+      background:
+        linear-gradient(
+          120deg,
+          #6b82ff,
+          #a365ff
+        );
+
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .orbit {
+      position: absolute;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(105,123,255,.25);
+
+      transform: rotate(-20deg);
+    }
+
+    .orbit-one {
+      width: 510px;
+      height: 175px;
+    }
+
+    .orbit-two {
+      width: 570px;
+      height: 220px;
+    }
+
+    .orbit-three {
+      width: 430px;
+      height: 430px;
+    }
+
+    .floating-dot {
+      position: absolute;
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #dbe0ff;
+
+      box-shadow:
+        0 0 20px 5px #657aff;
+    }
+
+    .dot-one {
+      right: 70px;
+      top: 100px;
+    }
+
+    .dot-two {
+      left: 70px;
+      bottom: 110px;
+
+      background: #b483ff;
+
+      box-shadow:
+        0 0 20px 5px #985fff;
+    }
+
+
+    /* =========================
+       TICKER
+    ========================= */
+
+    .ticker {
+      border-block: 1px solid rgba(255,255,255,.06);
+
+      overflow: hidden;
+      white-space: nowrap;
+
+      padding: 18px 0;
+
+      color: #65718a;
+
+      font-size: 10px;
+      letter-spacing: 4px;
+    }
+
+    .ticker-content {
+      width: max-content;
+
+      animation: ticker 25s linear infinite;
+    }
+
+    .ticker span {
+      color: #6e67ff;
+      margin: 0 25px;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-30%);
+      }
+    }
+
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    .section {
+      padding: 125px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+
+      gap: 50px;
+
+      align-items: end;
+
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      color: #7d89a4;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 3px;
+    }
+
+    .section-title {
+      margin-top: 15px;
+
+      font-size: clamp(40px,5vw,66px);
+
+      line-height: 1;
+
+      letter-spacing: -3px;
+    }
+
+    .section-title em {
+      color: #7988ff;
+      font-style: normal;
+    }
+
+    .section-intro {
+      color: #8792aa;
+
+      line-height: 1.8;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+    .service-card {
+      min-height: 365px;
+
+      padding: 30px;
+
+      border-radius: 22px;
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(25,34,62,.75),
+          rgba(9,13,28,.8)
+        );
+
+      position: relative;
+
+      overflow: hidden;
+
+      transition: .35s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(112,130,255,.35);
+    }
+
+    .service-card.featured {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(38,49,101,.7),
+          rgba(11,16,35,.85)
+        );
+
+      border-color:
+        rgba(101,119,255,.35);
+    }
+
+    .service-icon {
+      font-size: 28px;
+      color: #8290ff;
+    }
+
+    .service-number {
+      position: absolute;
+
+      right: 28px;
+      top: 30px;
+
+      color: #64708a;
+
+      font-size: 11px;
+    }
+
+    .service-card h3 {
+      margin-top: 70px;
+
+      font-size: 24px;
+    }
+
+    .service-card p {
+      margin-top: 14px;
+
+      color: #8590a9;
+
+      line-height: 1.7;
+
+      font-size: 13px;
+    }
+
+    .service-link {
+      position: absolute;
+
+      left: 30px;
+      bottom: 28px;
+
+      color: #a7b1ff;
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       CONCEPTS
+    ========================= */
+
+    .concept-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 16px;
+    }
+
+    .concept {
+      min-height: 380px;
+
+      padding: 28px;
+
+      border-radius: 22px;
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      background:
+        linear-gradient(
+          150deg,
+          #111c3a,
+          #090e1e
+        );
+
+      display: flex;
+      flex-direction: column;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .concept:nth-child(2) {
+      background:
+        linear-gradient(
+          150deg,
+          #1c1536,
+          #090e1e
+        );
+    }
+
+    .concept:nth-child(3) {
+      background:
+        linear-gradient(
+          150deg,
+          #0d2732,
+          #090e1e
+        );
+    }
+
+    .concept-tag {
+      color: #75829e;
+
+      font-size: 9px;
+
+      letter-spacing: 2px;
+    }
+
+    .concept h3 {
+      margin-top: auto;
+
+      font-size: 34px;
+
+      line-height: 1.05;
+
+      letter-spacing: -1.5px;
+    }
+
+    .concept p {
+      color: #8490a8;
+
+      font-size: 13px;
+
+      line-height: 1.7;
+
+      margin-top: 15px;
+    }
+
+    .concept-arrow {
+      position: absolute;
+
+      right: 25px;
+      bottom: 24px;
+
+      color: #8491ff;
+
+      font-size: 25px;
+    }
+
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process-section {
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(35,50,110,.18),
+          transparent
+        );
+    }
+
+    .process-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      margin-top: 60px;
+    }
+
+    .process-step {
+      padding: 20px 25px;
+
+      border-left:
+        1px solid rgba(255,255,255,.1);
+    }
+
+    .process-step:first-child {
+      border-left: 0;
+    }
+
+    .process-number {
+      color: #7180ff;
+
+      font-size: 11px;
+    }
+
+    .process-step h3 {
+      margin-top: 28px;
+
+      font-size: 20px;
+    }
+
+    .process-step p {
+      margin-top: 12px;
+
+      color: #7e8aa3;
+
+      font-size: 13px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-box {
+      padding: 55px;
+
+      border-radius: 28px;
+
+      border: 1px solid rgba(104,122,255,.3);
+
+      background:
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(70,87,200,.18),
+          transparent 35%
+        ),
+        linear-gradient(
+          140deg,
+          #111a38,
+          #090f20
+        );
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: end;
+
+      gap: 40px;
+    }
+
+    .contact-title {
+      font-size: clamp(40px,5vw,65px);
+
+      line-height: 1;
+
+      letter-spacing: -3px;
+
+      margin-top: 15px;
+    }
+
+    .contact-title em {
+      color: #7b89ff;
+
+      font-style: normal;
+    }
+
+    .contact-description {
+      margin-top: 20px;
+
+      color: #8793ab;
+
+      line-height: 1.7;
+
+      max-width: 520px;
+    }
+
+    .contact-links {
+      min-width: 280px;
+    }
+
+    .contact-link {
+      display: flex;
+
+      justify-content: space-between;
+
+      padding: 18px 0;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.1);
+
+      font-size: 14px;
+
+      font-weight: 600;
+    }
+
+    .contact-link span {
+      color: #8491ff;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 40px 0 50px;
+
+      border-top:
+        1px solid rgba(255,255,255,.07);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: end;
+
+      color: #5d6982;
+    }
+
+    .footer-brand {
+      color: white;
+
+      font-size: 22px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+    .footer-brand span {
+      color: #7182ff;
+    }
+
+    .footer-tag {
+      font-size: 8px;
+
+      letter-spacing: 3px;
+    }
+
+    .copyright {
+      font-size: 10px;
+    }
+
+
+    /* =========================
+       ARABIC
+    ========================= */
+
+    body.arabic {
+      direction: rtl;
+    }
+
+    body.arabic .nav-links {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    body.arabic .service-link {
+      left: auto;
+      right: 30px;
+    }
+
+    body.arabic .service-number {
+      right: auto;
+      left: 28px;
+    }
+
+    body.arabic .process-step {
+      border-left: 0;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+
+    body.arabic .process-step:first-child {
+      border-right: 0;
+    }
+
+    body.arabic .hero h1 {
+      letter-spacing: -2px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav.open .nav-links {
+        display: flex;
+
+        position: absolute;
+
+        top: 82px;
+
+        left: 20px;
+        right: 20px;
+
+        padding: 22px;
+
+        flex-direction: column;
+
+        background: #0d1427;
+
+        border:
+          1px solid rgba(255,255,255,.1);
+
+        border-radius: 16px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 140px;
+        padding-bottom: 80px;
+      }
+
+      .hero-visual {
+        height: 360px;
+
+        order: -1;
+      }
+
+      .hero-orb {
+        width: 235px;
+        height: 235px;
+      }
+
+      .hero-logo {
+        width: 130px;
+      }
+
+      .orbit-one {
+        width: 350px;
+      }
+
+      .orbit-two {
+        width: 400px;
+      }
+
+      .orbit-three {
+        width: 300px;
+        height: 300px;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .concept-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+      }
+
+      .process-step:nth-child(3) {
+        border-left: 0;
+      }
+
+      .contact-box {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 35px;
+      }
+
+      .contact-links {
+        width: 100%;
+      }
+
+      footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+      }
+    }
+
+
+    @media (max-width: 500px) {
+
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .hero h1 {
+        font-size: 58px;
+
+        letter-spacing: -4px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        text-align: center;
+      }
+
+      .hero-meta {
+        flex-wrap: wrap;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-step,
+      body.arabic .process-step {
+        border: 0;
+
+        border-top:
+          1px solid rgba(255,255,255,.1);
+
+        padding: 25px 0;
+      }
+
+      .process-step:first-child {
+        border-top: 0;
+      }
+
+      .contact-title {
+        font-size: 42px;
+      }
+    }
+
+  </style>
 </head>
+
+
 <body>
-<div id="landing" style="display:none">
-<div class="wrap">
-<nav class="nav">
-<a class="logo" href="#">NEXORA<i>●</i></a>
-<div class="navlinks">
-<a href="#features">Features</a><a href="#about">About</a>
-<button class="btn dark" onclick="openAuth('login')">Sign in</button>
-<button class="btn" onclick="openAuth('register')">Get started</button>
-</div></nav>
-<section class="hero">
-<div class="eyebrow">THE NEXT DEVELOPER PLATFORM</div>
-<h1>Build what's <span class="serif">next.</span></h1>
-<p class="lead">The premium home for developers to build, share, collaborate and create with AI.</p>
-<div class="actions"><button class="btn" onclick="openAuth('register')">Start building</button><a class="btn dark" href="#features">Explore projects</a></div>
-<div class="preview"><div class="previewbar">● NEXORA / workspace</div><div class="code"><span class="g">const</span> future <b>=</b> <span class="b">build</span>(<span class="o">"something great"</span>);<br><span class="muted">// collaboration · AI · open source</span></div></div>
-</section>
-<section id="features" class="features">
-<article class="feature"><span class="eyebrow">01</span><h2>Build</h2><p class="muted">Projects, profiles, stars, bookmarks and a workspace designed for shipping.</p></article>
-<article class="feature"><span class="eyebrow">02</span><h2>Connect</h2><p class="muted">Follow builders, form teams, discuss ideas and collaborate in one place.</p></article>
-<article class="feature"><span class="eyebrow">03</span><h2>Create with AI</h2><p class="muted">Turn an idea into architecture, tasks and a practical roadmap.</p></article>
-</section>
-<section id="about" class="manifesto"><div class="eyebrow">NEXORA</div><h2>Everything you need to turn<br><span class="serif">ideas into shipped work.</span></h2><p class="muted">One coherent experience for developers, teams and open-source communities.</p></section>
-<footer class="footer"><span>© 2026 NEXORA</span><span>Free · Open source · Built for builders</span></footer>
-</div>
-</div>
 
-<div id="auth" class="authscreen" style="display:none">
-<div class="authbox">
-<button class="close" onclick="closeAuth()">×</button>
-<div class="eyebrow" id="authEyebrow">WELCOME BACK</div>
-<h2 id="authTitle">Sign in.</h2>
-<div id="registerFields" style="display:none">
-<div class="field"><label>Full name</label><input id="rName" class="input" placeholder="Your name"></div>
-<div class="field"><label>Username</label><input id="rUser" class="input" placeholder="username"></div>
-</div>
-<div class="field"><label>Email</label><input id="authEmail" class="input" type="email" placeholder="you@example.com"></div>
-<div class="field"><label>Phone <span class="muted">(ready for future OTP)</span></label><input id="authPhone" class="input" placeholder="+1 555..."></div>
-<div class="field"><label>Password</label><input id="authPassword" class="input" type="password" placeholder="••••••••"></div>
-<button id="authSubmit" class="btn" style="width:100%;margin-top:8px" onclick="submitAuth()">Sign in</button>
-<div class="demo">Demo account: <b>builder@nexora.local</b> / <b>demo123</b><br>Google OAuth, real SMS/email and AI provider can be connected later without changing this UI.</div>
-</div>
-</div>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+  <div class="grid-bg"></div>
 
-<div id="app" style="display:block">
-<div class="wrap">
-<nav class="nav">
-<a class="logo" href="#" onclick="logout();return false">NEXORA<i>●</i></a>
-<div class="navlinks">
-<input id="search" class="input search" placeholder="Search NEXORA" onkeydown="if(event.key==='Enter')doSearch()">
-<button class="btn dark" onclick="toggleLanguage()">EN / AR</button>
-<button class="btn dark" onclick="toggleTheme()">◐</button>
-<button class="btn dark" onclick="openModal('settings')">Settings</button>
-<button class="btn" onclick="logout()">Log out</button>
-</div>
-</nav>
-<main class="appmain">
-<div class="dash"><div><div class="eyebrow">NEXORA / WORKSPACE</div><h1>Build what's <span class="serif">next.</span></h1><p class="muted">Your command center for projects, people, ideas and everything you're building.</p></div><button class="btn" onclick="openModal('create')">＋ New project</button></div>
-<div class="grid">
-<div class="card"><span class="eyebrow">PROJECTS</span><div class="num" id="sProjects">0</div><p class="muted">Active projects</p></div>
-<div class="card"><span class="eyebrow">STARS</span><div class="num" id="sStars">0</div><p class="muted">Community recognition</p></div>
-<div class="card"><span class="eyebrow">NETWORK</span><div class="num" id="sFollowers">0</div><p class="muted">Connections</p></div>
-</div>
-<div class="toolbar">
-<button class="btn dark" onclick="openModal('ai')">✦ AI Studio</button>
-<button class="btn dark" onclick="openModal('messages')">⌁ Messages</button>
-<button class="btn dark" onclick="openModal('notifications')">◉ Activity</button>
-<button class="btn dark" onclick="openModal('profile')">◎ Profile</button>
-<button class="btn dark" onclick="openModal('settings')">⚙ Settings</button>
-</div>
-<section class="section"><div class="sectionhead"><div><div class="eyebrow">YOUR WORK</div><h2>Projects</h2></div><div class="toolbar" style="margin:0"><button class="btn dark" onclick="filterProjects('mine')">Mine</button><button class="btn dark" onclick="filterProjects('all')">Discover</button></div></div><div id="projects" class="projects"></div></section>
-<section class="section"><div class="sectionhead"><div><div class="eyebrow">DISCOVER</div><h2>What's happening</h2></div></div><div class="grid" style="grid-template-columns:2fr 1fr 1fr">
-<div class="card"><span class="eyebrow">AI STUDIO</span><h2 style="margin-top:38px">Turn an idea into a plan.</h2><p class="muted">Describe your product and NEXORA structures the architecture, stack and first milestones.</p><button class="btn" onclick="openModal('ai')">Open AI Studio</button></div>
-<div class="card"><span class="eyebrow">ACTIVITY</span><div class="num" style="font-size:38px">24</div><p class="muted">Updates this week</p><button class="btn dark" onclick="openModal('notifications')">View activity</button></div>
-<div class="card"><span class="eyebrow">COMMUNITY</span><div class="num" style="font-size:38px">∞</div><p class="muted">Ideas worth building</p><button class="btn dark" onclick="filterProjects('all')">Explore</button></div>
-</div></section>
-<section class="section"><div class="sectionhead"><div><div class="eyebrow">QUICK ACCESS</div><h2>Saved</h2></div></div><div id="savedProjects" class="projects"></div></section>
-</main>
-</div>
-</div>
 
-<div id="modalbg" class="modalbg"><div class="modal"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
-<div id="toast" class="toast"></div>
+  <!-- =========================
+       NAVBAR
+  ========================== -->
 
-<script>
-const DBKEY="nexora_local_v1", SKEY="nexora_session_v1";
-const seed=()=>({users:[{id:"u-demo",name:"Demo Builder",username:"builder",email:"builder@nexora.local",phone:"",password:"demo123",bio:"Building what's next.",language:"en",country:"US"}],projects:[{id:"p-demo",ownerId:"u-demo",name:"NEXORA Starter",description:"A premium developer platform starter project.",readme:"# NEXORA Starter\\nBuild what's next.",tags:["nextjs","typescript","ai"],visibility:"PUBLIC",stars:12}],stars:[],bookmarks:[],notifications:[],messages:[]});
-let DB=JSON.parse(localStorage.getItem(DBKEY)||"null")||seed(), SESSION=JSON.parse(localStorage.getItem(SKEY)||"null"), authMode="login", lang=localStorage.getItem("nexora_lang")||"en";
-const save=()=>localStorage.setItem(DBKEY,JSON.stringify(DB));
-const user=()=>SESSION&&DB.users.find(x=>x.id===SESSION.id);
-const id=()=>Math.random().toString(36).slice(2)+Date.now().toString(36);
-const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
-function toast(t){const x=document.getElementById("toast");x.textContent=t;x.style.display="block";setTimeout(()=>x.style.display="none",2200)}
-function openAuth(mode){authMode=mode;document.getElementById("landing").style.display="none";document.getElementById("auth").style.display="flex";document.getElementById("registerFields").style.display=mode==="register"?"block":"none";document.getElementById("authEyebrow").textContent=mode==="register"?"JOIN NEXORA":"WELCOME BACK";document.getElementById("authTitle").textContent=mode==="register"?"Create your account.":"Sign in.";document.getElementById("authSubmit").textContent=mode==="register"?"Create account":"Sign in"}
-function closeAuth(){document.getElementById("auth").style.display="none";document.getElementById("landing").style.display="block"}
-function submitAuth(){const email=document.getElementById("authEmail").value.trim(),pass=document.getElementById("authPassword").value;if(!email||!pass)return toast("Email and password are required");if(authMode==="login"){const u=DB.users.find(x=>x.email.toLowerCase()===email.toLowerCase()&&x.password===pass);if(!u)return toast("Invalid credentials");SESSION={id:u.id}}else{const username=document.getElementById("rUser").value.trim(),name=document.getElementById("rName").value.trim()||username;if(!username)return toast("Username is required");if(DB.users.some(x=>x.email.toLowerCase()===email.toLowerCase()))return toast("Email already exists");if(DB.users.some(x=>x.username.toLowerCase()===username.toLowerCase()))return toast("Username already exists");const u={id:id(),name,username,email,phone:document.getElementById("authPhone").value.trim(),password:pass,bio:"",language:lang,country:""};DB.users.push(u);SESSION={id:u.id};save()}localStorage.setItem(SKEY,JSON.stringify(SESSION));enterApp();toast("Welcome to NEXORA")}
-function enterApp(){document.getElementById("landing").style.display="none";document.getElementById("auth").style.display="none";document.getElementById("app").style.display="block";loadProjects();stats()}
-function logout(){SESSION=null;localStorage.removeItem(SKEY);document.getElementById("app").style.display="none";document.getElementById("auth").style.display="none";document.getElementById("landing").style.display="block"}
-function stats(){const u=user();if(!u)return;document.getElementById("sProjects").textContent=DB.projects.filter(p=>p.ownerId===u.id).length;document.getElementById("sFollowers").textContent=0;document.getElementById("sStars").textContent=DB.projects.filter(p=>p.ownerId===u.id).reduce((n,p)=>n+p.stars,0)}
-function loadProjects(){const u=user(),list=document.getElementById("projects");if(!list)return;let ps=DB.projects.filter(p=>p.visibility==="PUBLIC"||p.ownerId===u?.id);if(projectFilter==="mine")ps=ps.filter(p=>p.ownerId===u?.id);list.innerHTML=ps.map(p=>`<article class="project"><div class="eyebrow">${p.ownerId===u?.id?"YOUR PROJECT":"DISCOVERED PROJECT"} · ${p.visibility}</div><h3>${esc(p.name)}</h3><p class="muted">${esc(p.description)}</p><div>${p.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div><div class="toolbar"><button class="btn dark" onclick="star('${p.id}')">★ ${p.stars}</button><button class="btn dark" onclick="bookmark('${p.id}')">🔖</button><button class="btn dark" onclick="openProject('${p.id}')">Open</button></div></article>`).join("")||'<div class="empty">No projects yet. Create your first one.</div>';renderSaved()}
-function star(pid){const u=user(),p=DB.projects.find(x=>x.id===pid),key=u.id+":"+pid,i=DB.stars.indexOf(key);if(i>=0){DB.stars.splice(i,1);p.stars=Math.max(0,p.stars-1);toast("Star removed")}else{DB.stars.push(key);p.stars++;toast("Star added")}save();loadProjects();stats()}
-function bookmark(pid){const u=user(),key=u.id+":"+pid,i=DB.bookmarks.indexOf(key);if(i>=0){DB.bookmarks.splice(i,1);toast("Bookmark removed")}else{DB.bookmarks.push(key);toast("Bookmarked")}save()}
-function openProject(pid){const p=DB.projects.find(x=>x.id===pid);openContent(`<div class="eyebrow">PROJECT</div><h2>${esc(p.name)}</h2><p class="muted">${esc(p.description)}</p><div class="card"><pre style="white-space:pre-wrap;font:13px/1.7 ui-monospace,monospace">${esc(p.readme||"No README yet.")}</pre></div><div class="toolbar"><button class="btn" onclick="star('${p.id}');closeModal()">★ ${p.stars}</button><button class="btn dark" onclick="bookmark('${p.id}')">🔖 Bookmark</button></div>`)}
-let projectFilter="all";
-function filterProjects(mode){projectFilter=mode;loadProjects();toast(mode==="mine"?"Showing your projects":"Showing all projects")}
-function renderSaved(){const u=user(),box=document.getElementById("savedProjects");if(!box||!u)return;const ids=DB.bookmarks.filter(k=>k.startsWith(u.id+":")).map(k=>k.split(":")[1]);const ps=DB.projects.filter(p=>ids.includes(p.id));box.innerHTML=ps.map(p=>`<article class="project"><div class="eyebrow">SAVED</div><h3>${esc(p.name)}</h3><p class="muted">${esc(p.description)}</p><button class="btn dark" onclick="openProject('${p.id}')">Open project</button></article>`).join("")||'<div class="empty">Your saved projects will appear here.</div>'}
-function openModal(type){if(type==="create")openContent(`<div class="eyebrow">NEW PROJECT</div><h2>Create project.</h2><div class="field"><label>Name</label><input id="pn" class="input"></div><div class="field"><label>Description</label><input id="pd" class="input"></div><div class="field"><label>Tags</label><input id="pt" class="input" placeholder="react, api, ai"></div><div class="field"><label>Visibility</label><select id="pv" class="input"><option>PUBLIC</option><option>PRIVATE</option></select></div><div class="field"><label>README</label><textarea id="pr" class="input" rows="7"></textarea></div><button class="btn" style="width:100%" onclick="createProject()">Create project</button>`);
-else if(type==="profile")openContent(`<div class="eyebrow">YOUR IDENTITY</div><h2>${esc(user().name)}.</h2><p class="muted">@${esc(user().username)}</p><div class="card"><div class="eyebrow">BIO</div><p>${esc(user().bio||"Tell the NEXORA community what you build.")}</p></div><div class="row"><span>Email</span><b>${esc(user().email)}</b></div><div class="row"><span>Projects</span><b>${DB.projects.filter(p=>p.ownerId===user().id).length}</b></div><div class="row"><span>Stars</span><b>${DB.projects.filter(p=>p.ownerId===user().id).reduce((n,p)=>n+p.stars,0)}</b></div>`);
-else if(type==="settings")openContent(`<div class="eyebrow">SETTINGS</div><h2>Settings.</h2><div class="field"><label>Name</label><input id="sn" class="input" value="${esc(user().name)}"></div><div class="field"><label>Bio</label><textarea id="sb" class="input" rows="4">${esc(user().bio)}</textarea></div><div class="field"><label>Language</label><select id="sl" class="input"><option value="en">English</option><option value="ar">العربية</option></select></div><button class="btn" style="width:100%" onclick="saveSettings()">Save changes</button>`);
-else if(type==="ai")openContent(`<div class="eyebrow">NEXORA AI</div><h2>Build the idea.</h2><p class="muted">Describe what you want to build. This standalone version generates a practical architecture starter locally; connect an AI provider later.</p><textarea id="aip" class="input" rows="6" placeholder="I want to build..."></textarea><button class="btn" style="width:100%" onclick="runAI()">Generate plan</button><div id="aiout"></div>`);
-else if(type==="messages")openContent(`<div class="eyebrow">COMMUNICATION</div><h2>Messages.</h2><p class="muted">Local demo messaging. Real-time transport can be connected later.</p><div id="messageList">${DB.messages.filter(m=>m.from===user().id||m.to===user().id).map(m=>`<div class="row"><span>${esc(m.text)}</span><small class="muted">${new Date(m.at).toLocaleString()}</small></div>`).join("")||'<div class="empty">No messages yet.</div>'}</div><div class="field"><label>Recipient username</label><input id="mtTo" class="input" placeholder="builder"></div><div class="field"><label>Message</label><input id="mtText" class="input"></div><button class="btn" onclick="sendMessage()">Send</button>`);
-else if(type==="notifications")openContent(`<div class="eyebrow">ACTIVITY</div><h2>Notifications.</h2>${DB.notifications.filter(n=>n.userId===user().id).map(n=>`<div class="row"><span>${esc(n.text)}</span><small class="muted">${new Date(n.at).toLocaleString()}</small></div>`).join("")||'<div class="empty">Nothing new.</div>'}`)}
-function openContent(html){document.getElementById("modalContent").innerHTML=html;document.getElementById("modalbg").style.display="flex"}
-function closeModal(){document.getElementById("modalbg").style.display="none"}
-function createProject(){const name=document.getElementById("pn").value.trim();if(!name)return toast("Project name is required");DB.projects.unshift({id:id(),ownerId:user().id,name,description:document.getElementById("pd").value,tags:document.getElementById("pt").value.split(",").map(x=>x.trim()).filter(Boolean),visibility:document.getElementById("pv").value,readme:document.getElementById("pr").value,stars:0,createdAt:Date.now()});save();closeModal();loadProjects();stats();toast("Project created")}
-function saveSettings(){user().name=document.getElementById("sn").value;user().bio=document.getElementById("sb").value;lang=document.getElementById("sl").value;localStorage.setItem("nexora_lang",lang);save();applyLanguage();closeModal();toast("Settings saved")}
-function runAI(){const q=document.getElementById("aip").value||"a developer product";document.getElementById("aiout").innerHTML=`<div class="card" style="margin-top:15px"><b>Architecture</b><p class="muted">Modular web platform for ${esc(q)}, with typed APIs, authentication, database-backed entities and responsive UI.</p><b>Recommended stack</b><p class="muted">Next.js · TypeScript · PostgreSQL · Prisma · Docker</p><b>Roadmap</b><ol><li>Define requirements and entities</li><li>Design database schema and API contracts</li><li>Build authentication and permissions</li><li>Implement core workflow</li><li>Add search, notifications and analytics</li><li>Add tests, security and CI/CD</li></ol></div>`}
-function sendMessage(){const to=document.getElementById("mtTo").value.trim(),text=document.getElementById("mtText").value.trim();if(!to||!text)return toast("Recipient and message are required");const r=DB.users.find(x=>x.username===to);if(!r)return toast("User not found");DB.messages.push({id:id(),from:user().id,to:r.id,text,at:Date.now()});DB.notifications.push({id:id(),userId:r.id,text:"New message from "+user().username,at:Date.now()});save();toast("Message sent");openModal("messages")}
-function doSearch(){const q=document.getElementById("search").value.trim().toLowerCase();if(!q)return;const ps=DB.projects.filter(p=>(p.name+" "+p.description+" "+p.tags.join(" ")).toLowerCase().includes(q));openContent(`<div class="eyebrow">SEARCH</div><h2>Results.</h2>${ps.map(p=>`<div class="row"><div><b>${esc(p.name)}</b><div class="muted">${esc(p.description)}</div></div><button class="btn dark" onclick="openProject('${p.id}')">Open</button></div>`).join("")||'<div class="empty">No results.</div>'}`)}
-function toggleLanguage(){lang=lang==="en"?"ar":"en";localStorage.setItem("nexora_lang",lang);applyLanguage()}
-function applyLanguage(){document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.body.classList.toggle("rtl",lang==="ar")}
-function toggleTheme(){document.body.classList.toggle("light");localStorage.setItem("nexora_theme",document.body.classList.contains("light")?"light":"dark")}
-if(localStorage.getItem("nexora_theme")==="light")document.body.classList.add("light");
-if(!SESSION||!user()){SESSION={id:"u-demo"};localStorage.setItem(SKEY,JSON.stringify(SESSION));} enterApp();
-</script>
+  <header>
+
+    <nav class="container">
+
+      <a href="#home" class="logo">
+
+        <!--
+          حط اللوجو بتاعك هنا:
+          logo.png
+        -->
+
+        <img
+          src="logo.png"
+          alt="NEXORA"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        >
+
+        <div class="logo-text" style="display:none">
+          NEX<span>O</span>RA
+        </div>
+
+      </a>
+
+
+      <div class="nav-links">
+
+        <a href="#services" data-en="Services" data-ar="الخدمات">
+          Services
+        </a>
+
+        <a href="#work" data-en="Work" data-ar="أعمالنا">
+          Work
+        </a>
+
+        <a href="#process" data-en="Process" data-ar="طريقة العمل">
+          Process
+        </a>
+
+        <a href="#contact" data-en="Contact" data-ar="تواصل معنا">
+          Contact
+        </a>
+
+      </div>
+
+
+      <div class="nav-actions">
+
+        <button
+          class="language-btn"
+          id="languageBtn"
+          onclick="toggleLanguage()"
+        >
+          AR
+        </button>
+
+        <a
+          href="#contact"
+          class="nav-cta"
+          data-en="Start a Project ↗"
+          data-ar="ابدأ مشروعك ↗"
+        >
+          Start a Project ↗
+        </a>
+
+      </div>
+
+
+      <button
+        class="menu-button"
+        onclick="toggleMenu()"
+      >
+        ☰
+      </button>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main id="home">
+
+    <section class="hero container">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+
+          <span class="pulse"></span>
+
+          <span
+            data-en="AI • SOFTWARE • DIGITAL PRODUCTS"
+            data-ar="ذكاء اصطناعي • برمجيات • منتجات رقمية"
+          >
+            AI • SOFTWARE • DIGITAL PRODUCTS
+          </span>
+
+        </div>
+
+
+        <h1>
+
+          BUILD<br>
+
+          <span>WHAT</span><br>
+
+          MATTERS.
+
+        </h1>
+
+
+        <p
+          class="hero-description"
+          data-en="We turn ambitious ideas into intelligent software, AI solutions, and digital products built to make a real impact."
+          data-ar="نحوّل الأفكار الطموحة إلى برمجيات ذكية وحلول ذكاء اصطناعي ومنتجات رقمية مصممة لصنع تأثير حقيقي."
+        >
+          We turn ambitious ideas into intelligent software, AI solutions, and digital products built to make a real impact.
+        </p>
+
+
+        <div class="hero-buttons">
+
+          <a
+            href="#contact"
+            class="button button-primary"
+            data-en="Start a Project →"
+            data-ar="ابدأ مشروعك →"
+          >
+            Start a Project →
+          </a>
+
+          <a
+            href="#services"
+            class="button button-secondary"
+            data-en="Explore Services"
+            data-ar="اكتشف خدماتنا"
+          >
+            Explore Services
+          </a>
+
+        </div>
+
+
+        <div class="hero-meta">
+
+          <span
+            data-en="AI-powered"
+            data-ar="مدعوم بالذكاء الاصطناعي"
+          >
+            AI-powered
+          </span>
+
+          <i></i>
+
+          <span
+            data-en="Product-focused"
+            data-ar="نركز على المنتجات"
+          >
+            Product-focused
+          </span>
+
+          <i></i>
+
+          <span
+            data-en="Built for growth"
+            data-ar="مصمم للنمو"
+          >
+            Built for growth
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- HERO VISUAL -->
+
+      <div class="hero-visual">
+
+        <div class="orbit orbit-one"></div>
+
+        <div class="orbit orbit-two"></div>
+
+        <div class="orbit orbit-three"></div>
+
+
+        <div class="hero-orb">
+
+          <img
+            src="logo.png"
+            alt="NEXORA"
+            class="hero-logo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          >
+
+          <div
+            class="hero-logo-fallback"
+            style="display:none"
+          >
+            N
+          </div>
+
+        </div>
+
+
+        <div class="floating-dot dot-one"></div>
+
+        <div class="floating-dot dot-two"></div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TICKER
+    ========================== -->
+
+    <div class="ticker">
+
+      <div class="ticker-content">
+
+        AI SOLUTIONS
+        <span>✦</span>
+
+        SOFTWARE DEVELOPMENT
+        <span>✦</span>
+
+        DIGITAL PRODUCTS
+        <span>✦</span>
+
+        AUTOMATION
+        <span>✦</span>
+
+        AI SOLUTIONS
+        <span>✦</span>
+
+        SOFTWARE DEVELOPMENT
+        <span>✦</span>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section id="services" class="section container">
+
+      <div class="section-heading">
+
+        <div>
+
+          <div
+            class="section-label"
+            data-en="WHAT WE DO"
+            data-ar="ماذا نقدم"
+          >
+            WHAT WE DO
+          </div>
+
+          <h2
+            class="section-title"
+            data-en="Technology that<br><em>moves you forward.</em>"
+            data-ar="تقنية<br><em>تدفعك للأمام.</em>"
+          >
+            Technology that<br>
+            <em>moves you forward.</em>
+          </h2>
+
+        </div>
+
+
+        <p
+          class="section-intro"
+          data-en="Strategy, design, engineering and AI — combined to create products people actually use."
+          data-ar="استراتيجية وتصميم وهندسة وذكاء اصطناعي — نجمعهم لبناء منتجات يستخدمها الناس فعلاً."
+        >
+          Strategy, design, engineering and AI — combined to create products people actually use.
+        </p>
+
+      </div>
+
+
+      <div class="services-grid">
+
+
+        <!-- SERVICE 01 -->
+
+        <article class="service-card">
+
+          <div class="service-icon">✦</div>
+
+          <div class="service-number">01</div>
+
+          <h3
+            data-en="AI Solutions"
+            data-ar="حلول الذكاء الاصطناعي"
+          >
+            AI Solutions
+          </h3>
+
+          <p
+            data-en="AI agents, intelligent assistants, smart workflows and custom AI systems built around your business."
+            data-ar="وكلاء ذكاء اصطناعي ومساعدون أذكياء وأنظمة وأتمتة مصممة خصيصاً حول احتياجات عملك."
+          >
+            AI agents, intelligent assistants, smart workflows and custom AI systems built around your business.
+          </p>
+
+          <a
+            href="#contact"
+            class="service-link"
+            data-en="Build with AI →"
+            data-ar="ابنِ باستخدام AI →"
+          >
+            Build with AI →
+          </a>
+
+        </article>
+
+
+
+        <!-- SERVICE 02 -->
+
+        <article class="service-card featured">
+
+          <div class="service-icon">⌁</div>
+
+          <div class="service-number">02</div>
+
+          <h3
+            data-en="Software Development"
+            data-ar="تطوير البرمجيات"
+          >
+            Software Development
+          </h3>
+
+          <p
+            data-en="Modern websites, web apps, SaaS platforms and custom software engineered for performance and scale."
+            data-ar="مواقع حديثة وتطبيقات ويب ومنصات SaaS وبرمجيات مخصصة مصممة للأداء وقابلية التوسع."
+          >
+            Modern websites, web apps, SaaS platforms and custom software engineered for performance and scale.
+          </p>
+
+          <a
+            href="#contact"
+            class="service-link"
+            data-en="Build software →"
+            data-ar="ابنِ برنامجك →"
+          >
+            Build software →
+          </a>
+
+        </article>
+
+
+
+        <!-- SERVICE 03 -->
+
+        <article class="service-card">
+
+          <div class="service-icon">◈</div>
+
+          <div class="service-number">03</div>
+
+          <h3
+            data-en="Digital Products"
+            data-ar="المنتجات الرقمية"
+          >
+            Digital Products
+          </h3>
+
+          <p
+            data-en="From raw idea to polished product with clear UX, strong branding and a launch-ready experience."
+            data-ar="من الفكرة الأولية إلى منتج متكامل بتجربة مستخدم واضحة وهوية قوية وتجربة جاهزة للإطلاق."
+          >
+            From raw idea to polished product with clear UX, strong branding and a launch-ready experience.
+          </p>
+
+          <a
+            href="#contact"
+            class="service-link"
+            data-en="Build a product →"
+            data-ar="ابنِ منتجك →"
+          >
+            Build a product →
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONCEPTS
+    ========================== -->
+
+    <section id="work" class="section container">
+
+      <div class="section-heading">
+
+        <div>
+
+          <div
+            class="section-label"
+            data-en="FEATURED CONCEPTS"
+            data-ar="نماذج وأفكار"
+          >
+            FEATURED CONCEPTS
+          </div>
+
+          <h2
+            class="section-title"
+            data-en="Ideas, <em>made real.</em>"
+            data-ar="أفكار تتحول إلى <em>واقع.</em>"
+          >
+            Ideas, <em>made real.</em>
+          </h2>
+
+        </div>
+
+        <p
+          class="section-intro"
+          data-en="Concepts we can turn into high-impact digital products for startups and growing businesses."
+          data-ar="أفكار يمكننا تحويلها إلى منتجات رقمية قوية للشركات الناشئة والمشروعات المتنامية."
+        >
+          Concepts we can turn into high-impact digital products for startups and growing businesses.
+        </p>
+
+      </div>
+
+
+      <div class="concept-grid">
+
+
+        <article class="concept">
+
+          <div class="concept-tag">
+            AI / SAAS — 01
+          </div>
+
+          <h3
+            data-en="Intelligent<br>Business Hub"
+            data-ar="منصة أعمال<br>ذكية"
+          >
+            Intelligent<br>
+            Business Hub
+          </h3>
+
+          <p
+            data-en="AI-assisted operations, analytics and workflow automation in one platform."
+            data-ar="عمليات وتحليلات وأتمتة ذكية للأعمال في منصة واحدة."
+          >
+            AI-assisted operations, analytics and workflow automation in one platform.
+          </p>
+
+          <div class="concept-arrow">↗</div>
+
+        </article>
+
+
+
+        <article class="concept">
+
+          <div class="concept-tag">
+            WEB APP — 02
+          </div>
+
+          <h3
+            data-en="Next-Gen<br>Client Portal"
+            data-ar="بوابة عملاء<br>من الجيل الجديد"
+          >
+            Next-Gen<br>
+            Client Portal
+          </h3>
+
+          <p
+            data-en="A premium digital experience designed to simplify customer journeys."
+            data-ar="تجربة رقمية مميزة مصممة لتبسيط رحلة العميل."
+          >
+            A premium digital experience designed to simplify customer journeys.
+          </p>
+
+          <div class="concept-arrow">↗</div>
+
+        </article>
+
+
+
+        <article class="concept">
+
+          <div class="concept-tag">
+            AUTOMATION — 03
+          </div>
+
+          <h3
+            data-en="Smart<br>Workflow Engine"
+            data-ar="محرك<br>سير عمل ذكي"
+          >
+            Smart<br>
+            Workflow Engine
+          </h3>
+
+          <p
+            data-en="Automate repetitive processes and give teams more time to focus."
+            data-ar="أتمتة العمليات المتكررة ومنح فريقك وقتاً أكبر للتركيز على المهم."
+          >
+            Automate repetitive processes and give teams more time to focus.
+          </p>
+
+          <div class="concept-arrow">↗</div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROCESS
+    ========================== -->
+
+    <section
+      id="process"
+      class="process-section"
+    >
+
+      <div class="section container">
+
+        <div
+          class="section-label"
+          data-en="HOW WE WORK"
+          data-ar="كيف نعمل"
+        >
+          HOW WE WORK
+        </div>
+
+
+        <h2
+          class="section-title"
+          data-en="From idea to <em>impact.</em>"
+          data-ar="من الفكرة إلى <em>التأثير.</em>"
+        >
+          From idea to <em>impact.</em>
+        </h2>
+
+
+        <div class="process-grid">
+
+
+          <div class="process-step">
+
+            <div class="process-number">
+              01
+            </div>
+
+            <h3
+              data-en="Discover"
+              data-ar="اكتشف"
+            >
+              Discover
+            </h3>
+
+            <p
+              data-en="We understand your idea, users and business goal."
+              data-ar="نفهم فكرتك والمستخدمين والهدف التجاري."
+            >
+              We understand your idea, users and business goal.
+            </p>
+
+          </div>
+
+
+
+          <div class="process-step">
+
+            <div class="process-number">
+              02
+            </div>
+
+            <h3
+              data-en="Design"
+              data-ar="صمّم"
+            >
+              Design
+            </h3>
+
+            <p
+              data-en="We turn strategy into a clear and beautiful product experience."
+              data-ar="نحوّل الاستراتيجية إلى تجربة منتج واضحة ومميزة."
+            >
+              We turn strategy into a clear and beautiful product experience.
+            </p>
+
+          </div>
+
+
+
+          <div class="process-step">
+
+            <div class="process-number">
+              03
+            </div>
+
+            <h3
+              data-en="Build"
+              data-ar="طوّر"
+            >
+              Build
+            </h3>
+
+            <p
+              data-en="We engineer the product with speed, quality and scalability."
+              data-ar="نطوّر المنتج بسرعة وجودة وقابلية عالية للتوسع."
+            >
+              We engineer the product with speed, quality and scalability.
+            </p>
+
+          </div>
+
+
+
+          <div class="process-step">
+
+            <div class="process-number">
+              04
+            </div>
+
+            <h3
+              data-en="Launch"
+              data-ar="أطلق"
+            >
+              Launch
+            </h3>
+
+            <p
+              data-en="We launch, learn and keep improving what matters."
+              data-ar="نطلق المنتج ونتعلم ونستمر في تحسين ما يهم."
+            >
+              We launch, learn and keep improving what matters.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section
+      id="contact"
+      class="section container"
+    >
+
+      <div class="contact-box">
+
+        <div>
+
+          <div
+            class="section-label"
+            data-en="LET'S BUILD"
+            data-ar="لنبدأ البناء"
+          >
+            LET'S BUILD
+          </div>
+
+
+          <h2
+            class="contact-title"
+            data-en="Have an idea?<br><em>Let's make it happen.</em>"
+            data-ar="عندك فكرة؟<br><em>خلينا ننفذها.</em>"
+          >
+            Have an idea?<br>
+            <em>Let's make it happen.</em>
+          </h2>
+
+
+          <p
+            class="contact-description"
+            data-en="Tell us what you're building and let's explore the next step together."
+            data-ar="احكيلنا عن فكرتك وخلينا نحدد الخطوة الجاية مع بعض."
+          >
+            Tell us what you're building and let's explore the next step together.
+          </p>
+
+        </div>
+
+
+        <div class="contact-links">
+
+          <a
+            href="https://wa.me/201027595528"
+            target="_blank"
+            class="contact-link"
+          >
+
+            <span
+              data-en="WhatsApp"
+              data-ar="واتساب"
+            >
+              WhatsApp
+            </span>
+
+            <span>↗</span>
+
+          </a>
+
+
+          <a
+            href="tel:+201027595528"
+            class="contact-link"
+          >
+
+            <span>
+              010 2759 5528
+            </span>
+
+            <span>↗</span>
+
+          </a>
+
+
+          <a
+            href="mailto:info@nexora.com"
+            class="contact-link"
+          >
+
+            <span>
+              info@nexora.com
+            </span>
+
+            <span>↗</span>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="container">
+
+    <div>
+
+      <div class="footer-brand">
+        NEX<span>O</span>RA
+      </div>
+
+      <div
+        class="footer-tag"
+        data-en="AI • SOFTWARE • DIGITAL PRODUCTS"
+        data-ar="ذكاء اصطناعي • برمجيات • منتجات رقمية"
+      >
+        AI • SOFTWARE • DIGITAL PRODUCTS
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 NEXORA
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    let currentLanguage = "en";
+
+
+    function toggleMenu() {
+
+      const nav = document.querySelector("nav");
+
+      nav.classList.toggle("open");
+
+    }
+
+
+    function toggleLanguage() {
+
+      currentLanguage =
+        currentLanguage === "en"
+          ? "ar"
+          : "en";
+
+
+      document.body.classList.toggle(
+        "arabic",
+        currentLanguage === "ar"
+      );
+
+
+      document.documentElement.lang =
+        currentLanguage;
+
+
+      document.documentElement.dir =
+        currentLanguage === "ar"
+          ? "rtl"
+          : "ltr";
+
+
+      document
+        .querySelectorAll("[data-en]")
+        .forEach(element => {
+
+          element.innerHTML =
+            element.dataset[currentLanguage];
+
+        });
+
+
+      document.getElementById("languageBtn")
+        .textContent =
+          currentLanguage === "en"
+            ? "AR"
+            : "EN";
+
+    }
+
+
+    // Close mobile menu after clicking a link
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelector("nav")
+              .classList.remove("open");
+
+          }
+        );
+
+      });
+
+
+    // Simple reveal animation
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.style.opacity = "1";
+
+              entry.target.style.transform =
+                "translateY(0)";
+
+            }
+
+          });
+
+        },
+        {
+          threshold: .12
+        }
+      );
+
+
+    document
+      .querySelectorAll(
+        ".service-card, .concept, .process-step, .contact-box"
+      )
+      .forEach(element => {
+
+        element.style.opacity = "0";
+
+        element.style.transform =
+          "translateY(25px)";
+
+        element.style.transition =
+          "opacity .7s ease, transform .7s ease";
+
+        observer.observe(element);
+
+      });
+
+  </script>
+
 </body>
-</html>
+  </html>
