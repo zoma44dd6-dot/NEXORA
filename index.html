@@ -2,647 +2,832 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="نبض، موسوعة طبية عربية للتوعية الصحية، تضم معلومات عن الأمراض والأدوية والمستشفيات والأمراض النادرة."
-    >
-
-    <meta name="theme-color" content="#071827">
-
-    <title>نبض | NABD HEALTH — المعرفة الصحية أقرب إليك</title>
-
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-
-    <!-- شريط التنقل الرئيسي -->
-    <header class="site-header">
-
-        <div class="container header-content">
-
-            <a class="brand" href="#home" aria-label="نبض الصفحة الرئيسية">
-
-                <span class="brand-icon" aria-hidden="true">
-                    <svg viewBox="0 0 64 64">
-                        <path
-                            d="M3 34 H17 L25 15 L34 49 L43 24 L49 34 H61"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="3.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                    </svg>
-                </span>
-
-                <span class="brand-text">
-                    <strong>نبض</strong>
-                    <span>NABD HEALTH</span>
-                    <small>معلومة موثوقة.. حياة أفضل</small>
-                </span>
-
-            </a>
-
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="فتح قائمة التنقل"
-                aria-expanded="false"
-                aria-controls="mainNav"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="main-nav" id="mainNav" aria-label="القائمة الرئيسية">
-
-                <a class="nav-link active" href="#home">الرئيسية</a>
-
-                <a class="nav-link" href="#diseases">الأمراض</a>
-
-                <a class="nav-link" href="#medicines">الأدوية</a>
-
-                <a class="nav-link" href="#hospitals">المستشفيات</a>
-
-                <a class="nav-link" href="#rare-diseases">
-                    الأمراض النادرة
-                </a>
-
-                <a class="nav-link" href="#articles">
-                    المكتبة الطبية
-                </a>
-
-                <a class="nav-link" href="#about">عن نبض</a>
-
-            </nav>
-
-            <button
-                class="theme-toggle"
-                id="themeToggle"
-                type="button"
-                aria-label="تغيير مظهر الموقع"
-                title="الوضع الليلي والنهاري"
-            >
-                ◐
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <main>
-
-        <!-- الواجهة الرئيسية -->
-        <section class="hero" id="home">
-
-            <div class="hero-overlay"></div>
-
-            <div class="container hero-content">
-
-                <div class="hero-copy">
-
-                    <span class="eyebrow">
-                        المعرفة الطبية في متناول الجميع
-                    </span>
-
-                    <h1>
-                        نبض..
-                        <span>صحتك بين يديك</span>
-                    </h1>
-
-                    <p class="hero-description">
-                        موسوعة طبية عربية تجمع المعلومات الصحية
-                        في مكان واحد، من الأمراض الشائعة إلى
-                        الأمراض النادرة، لتساعدك على فهم صحتك بوعي.
-                    </p>
-
-                    <p class="hero-subtitle">
-                        معلومات منظمة، لغة بسيطة، ومعرفة أقرب إليك.
-                    </p>
-
-                    <!-- محرك البحث -->
-                    <form class="search-form" id="searchForm" role="search">
-
-                        <label class="visually-hidden" for="siteSearch">
-                            ابحث عن مرض أو دواء أو مستشفى
-                        </label>
-
-                        <span class="search-icon" aria-hidden="true">
-                            ⌕
-                        </span>
-
-                        <input
-                            type="search"
-                            id="siteSearch"
-                            name="q"
-                            placeholder="ابحث عن مرض أو دواء أو مستشفى..."
-                            autocomplete="off"
-                        >
-
-                        <button type="submit">
-                            ابحث الآن
-                        </button>
-
-                    </form>
-
-                    <div class="popular-searches">
-
-                        <span>الأكثر بحثًا:</span>
-
-                        <button
-                            type="button"
-                            class="search-chip"
-                            data-search="السكري"
-                        >
-                            السكري
-                        </button>
-
-                        <button
-                            type="button"
-                            class="search-chip"
-                            data-search="ضغط الدم"
-                        >
-                            ضغط الدم
-                        </button>
-
-                        <button
-                            type="button"
-                            class="search-chip"
-                            data-search="الأنيميا"
-                        >
-                            الأنيميا
-                        </button>
-
-                        <button
-                            type="button"
-                            class="search-chip"
-                            data-search="فيتامين د"
-                        >
-                            فيتامين د
-                        </button>
-
-                    </div>
-
-                    <div
-                        class="search-results"
-                        id="searchResults"
-                        aria-live="polite"
-                    ></div>
-
-                </div>
-
-                <div class="hero-badge">
-
-                    <span class="badge-icon" aria-hidden="true">✚</span>
-
-                    <span>
-                        <strong>المعرفة الصحية</strong>
-                        <small>خطوة نحو وعي أفضل</small>
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- أقسام الموقع -->
-        <section class="section categories-section" id="categories">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div>
-                        <span class="section-kicker">اكتشف نبض</span>
-
-                        <h2>كل ما تحتاج معرفته عن صحتك</h2>
-
-                        <p>
-                            تصفح أقسام الموسوعة الطبية واكتشف
-                            المعلومات التي تبحث عنها.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <div class="category-grid">
-
-                    <!-- الأمراض -->
-                    <a
-                        class="category-card category-diseases"
-                        href="#diseases"
-                    >
-
-                        <span class="category-icon" aria-hidden="true">
-                            <svg viewBox="0 0 48 48">
-                                <path
-                                    d="M24 5 L42 15 V33 L24 43 L6 33 V15 Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                />
-                                <path
-                                    d="M8 25 H17 L22 15 L28 33 L33 23 H40"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-                        </span>
-
-                        <h3>موسوعة الأمراض</h3>
-
-                        <p>
-                            تعرّف على الأعراض والأسباب وطرق
-                            التشخيص والعلاج.
-                        </p>
-
-                        <span class="card-link">اكتشف الآن ←</span>
-
-                    </a>
-
-
-                    <!-- الأدوية -->
-                    <a
-                        class="category-card category-medicines"
-                        href="#medicines"
-                    >
-
-                        <span class="category-icon" aria-hidden="true">
-                            <svg viewBox="0 0 48 48">
-                                <g
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.5"
-                                >
-                                    <rect
-                                        x="7"
-                                        y="13"
-                                        width="34"
-                                        height="22"
-                                        rx="11"
-                                        transform="rotate(-35 24 24)"
-                                    />
-                                    <path d="M15 31 L33 17"/>
-                                </g>
-                            </svg>
-                        </span>
-
-                        <h3>دليل الأدوية</h3>
-
-                        <p>
-                            معلومات عن الاستخدامات والتحذيرات
-                            والآثار الجانبية.
-                        </p>
-
-                        <span class="card-link">اكتشف الآن ←</span>
-
-                    </a>
-
-
-                    <!-- المستشفيات -->
-                    <a
-                        class="category-card category-hospitals"
-                        href="#hospitals"
-                    >
-
-                        <span class="category-icon" aria-hidden="true">
-                            <svg viewBox="0 0 48 48">
-                                <path
-                                    d="M8 42 V10 H29 V42 M29 20 H40 V42 M4 42 H44"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.5"
-                                    stroke-linejoin="round"
-                                />
-                                <path
-                                    d="M16 17 H22 M19 14 V20 M15 27 H22 M15 33 H22 M33 27 H37 M33 33 H37"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.5"
-                                />
-                            </svg>
-                        </span>
-
-                        <h3>دليل المستشفيات</h3>
-
-                        <p>
-                            تعرّف على المنشآت الطبية والتخصصات
-                            ووسائل التواصل.
-                        </p>
-
-                        <span class="card-link">اكتشف الآن ←</span>
-
-                    </a>
-
-
-                    <!-- الأمراض النادرة -->
-                    <a
-                        class="category-card category-rare"
-                        href="#rare-diseases"
-                    >
-
-                        <span class="category-icon" aria-hidden="true">
-                            <svg viewBox="0 0 48 48">
-                                <g
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.2"
-                                    stroke-linecap="round"
-                                >
-                                    <path d="M14 6 C38 14 10 34 34 42"/>
-                                    <path d="M34 6 C10 14 38 34 14 42"/>
-                                    <path d="M16 12 H32 M13 20 H35 M13 28 H35 M16 36 H32"/>
-                                </g>
-                            </svg>
-                        </span>
-
-                        <h3>الأمراض النادرة</h3>
-
-                        <p>
-                            معلومات تساعد على فهم الأمراض النادرة
-                            وسبل الوصول إلى الرعاية المناسبة.
-                        </p>
-
-                        <span class="card-link">اكتشف الآن ←</span>
-
-                    </a>
-
-
-                    <!-- المكتبة الطبية -->
-                    <a
-                        class="category-card category-library"
-                        href="#articles"
-                    >
-
-                        <span class="category-icon" aria-hidden="true">
-                            <svg viewBox="0 0 48 48">
-                                <path
-                                    d="M5 9 Q15 5 24 12 Q33 5 43 9 V38 Q33 34 24 41 Q15 34 5 38 Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.5"
-                                    stroke-linejoin="round"
-                                />
-                                <path
-                                    d="M24 12 V41 M11 15 Q17 14 20 17 M28 17 Q34 14 38 15"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                />
-                            </svg>
-                        </span>
-
-                        <h3>المكتبة الطبية</h3>
-
-                        <p>
-                            مقالات تثقيفية مبسطة مبنية على
-                            مصادر طبية موثوقة.
-                        </p>
-
-                        <span class="card-link">اكتشف الآن ←</span>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- مميزات نبض -->
-        <section class="benefits-strip">
-
-            <div class="container benefits-grid">
-
-                <div class="benefit-item">
-
-                    <span class="benefit-icon" aria-hidden="true">✓</span>
-
-                    <div>
-                        <h3>معلومات موثقة</h3>
-                        <p>مع توضيح المصادر الطبية</p>
-                    </div>
-
-                </div>
-
-                <div class="benefit-item">
-
-                    <span class="benefit-icon" aria-hidden="true">◎</span>
-
-                    <div>
-                        <h3>محتوى عربي مبسط</h3>
-                        <p>معرفة صحية للجميع</p>
-                    </div>
-
-                </div>
-
-                <div class="benefit-item">
-
-                    <span class="benefit-icon" aria-hidden="true">▣</span>
-
-                    <div>
-                        <h3>متوافق مع الموبايل</h3>
-                        <p>تصفح مريح على مختلف الأجهزة</p>
-                    </div>
-
-                </div>
-
-                <div class="benefit-item">
-
-                    <span class="benefit-icon" aria-hidden="true">♡</span>
-
-                    <div>
-                        <h3>مجاني للجميع</h3>
-                        <p>من دون اشتراك أو تسجيل دخول</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- الأمراض -->
-        <section class="section content-section" id="diseases">
-
-            <div class="container">
-
-                <div class="section-heading section-heading-row">
-
-                    <div>
-                        <span class="section-kicker">الموسوعة الطبية</span>
-
-                        <h2>استكشف الأمراض</h2>
-
-                        <p>
-                            معلومات منظمة لفهم الحالات الصحية
-                            وأهم الأسئلة المتعلقة بها.
-                        </p>
-                    </div>
-
-                    <a class="text-link" href="#categories">
-                        جميع الأقسام ←
-                    </a>
-
-                </div>
-
-                <div class="content-grid" id="diseaseGrid">
-
-                    <article class="info-card">
-
-                        <span class="info-card-label">مرض مزمن</span>
-
-                        <h3>داء السكري</h3>
-
-                        <p>
-                            معلومات عامة عن أنواع السكري،
-                            وأعراضه، وطرق تشخيصه ومتابعته.
-                        </p>
-
-                        <a href="#medical-notice">
-                            اقرأ المزيد ←
-                        </a>
-
-                    </article>
-
-
-                    <article class="info-card">
-
-                        <span class="info-card-label">صحة القلب</span>
-
-                        <h3>ارتفاع ضغط الدم</h3>
-
-                        <p>
-                            تعرّف على عوامل الخطورة وأهمية
-                            القياس والمتابعة الطبية المنتظمة.
-                        </p>
-
-                        <a href="#medical-notice">
-                            اقرأ المزيد ←
-                        </a>
-
-                    </article>
-
-
-                    <article class="info-card">
-
-                        <span class="info-card-label">صحة عامة</span>
-
-                        <h3>فقر الدم</h3>
-
-                        <p>
-                            معلومات عن الأنواع الشائعة
-                            وأسباب فقر الدم وطرق تقييمه.
-                        </p>
-
-                        <a href="#medical-notice">
-                            اقرأ المزيد ←
-                        </a>
-
-                    </article>
-
-                </div>
-
-                <p class="section-note">
-                    هذه أمثلة أولية للواجهة، وسيُربط القسم بقاعدة
-                    معلومات موسعة في الملفات التالية.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- الأدوية -->
-        <section
-            class="section alternate-section"
-            id="medicines"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-kicker">دليل الدواء</span>
-
-                    <h2>اعرف دواءك بشكل أفضل</h2>
-
-                    <p>
-                        تعرّف على معلومات الدواء المعتمدة،
-                        بما فيها الاستخدامات والتحذيرات
-                        والآثار الجانبية والتفاعلات الدوائية.
-                    </p>
-
-                </div>
-
-                <div class="medicine-panel">
-
-                    <div class="medicine-panel-icon" aria-hidden="true">
-                        +
-                    </div>
-
-                    <div>
-                        <h3>معلومات الدواء تحتاج إلى الدقة</h3>
-
-                        <p>
-                            تختلف ملاءمة الأدوية من شخص لآخر.
-                            لا تبدأ دواءً أو تغيّر جرعته أو توقفه
-                            اعتمادًا على المعلومات العامة وحدها.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div id="medicineGrid" class="content-grid">
-
-                    <article class="info-card">
-
-                        <span class="info-card-label">مثال توعوي</span>
-
-                        <h3>مسكنات الألم</h3>
-
-                        <p>
-                            تعرّف على اختلاف أنواع المسكنات
-                            وأهمية الانتباه إلى موانع الاستخدام.
-                        </p>
-
-                    </article>
-
-                    <article class="info-card">
-
-                        <span class="info-card-label">معلومات دوائية</span>
-
-                        <h3>التفاعلات الدوائية</h3>
-
-                        <p>
-                            قد تتفاعل بعض الأدوية مع بعضها
-                            أو مع الأغذية والحالات الصحية.
-                        </p>
-
-                    </article>
-
-                    <article class="info-card">
-
-                        <span class="info-card-label">سلامة الدواء</span>
-
-                        <h3>الآثار الجانبية</h3>
-
-       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#071c2c">
+
+    <meta name="description"
+          content="نبض، منصة عربية للمعلومات الصحية والتوعية الطبية، تضم معلومات عن الأمراض والأدوية والوقاية والصحة العامة.">
+
+    <title>نبض | NABD HEALTH - صحتك تستحق المعرفة</title>
+
+    <style>
+        /* =========================
+           1. الألوان والإعدادات
+        ========================= */
+
+        :root {
+            --bg: #f4f8fb;
+            --surface: #ffffff;
+            --surface-soft: #edf5f7;
+            --text: #142d3b;
+            --muted: #71818b;
+            --primary: #087f8c;
+            --primary-dark: #06636e;
+            --accent: #45d6b1;
+            --border: #e0e9ee;
+            --shadow: 0 12px 35px rgba(15, 46, 62, 0.07);
+            --radius: 22px;
+        }
+
+        body.dark {
+            --bg: #071620;
+            --surface: #102531;
+            --surface-soft: #172f3c;
+            --text: #edf7fa;
+            --muted: #a3b8c2;
+            --primary: #48c6c1;
+            --primary-dark: #2fa8a4;
+            --accent: #55dfba;
+            --border: #29414d;
+            --shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.9;
+            transition: background 0.25s, color 0.25s;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .container {
+            width: min(1160px, calc(100% - 36px));
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 76px 0;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin-bottom: 32px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(25px, 4vw, 37px);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            min-height: 48px;
+            padding: 12px 22px;
+            border: 0;
+            border-radius: 13px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #07332e;
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        /* =========================
+           2. رأس الموقع
+        ========================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .brand-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 15px;
+            background: var(--primary);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 7px 20px rgba(8, 127, 140, 0.2);
+        }
+
+        .brand-name {
+            font-size: 22px;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        .brand-name small {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: var(--muted);
+            direction: ltr;
+            text-align: right;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .main-nav a {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-button {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+        }
+
+        .menu-button {
+            display: none;
+        }
+
+        /* =========================
+           3. الواجهة الرئيسية
+        ========================= */
+
+        .hero {
+            padding: 65px 0 55px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 8% 10%,
+                    rgba(69, 214, 177, 0.14),
+                    transparent 32%
+                ),
+                var(--bg);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 13px;
+            border-radius: 30px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 5vw, 57px);
+            line-height: 1.4;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-description {
+            max-width: 590px;
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            max-width: 590px;
+            padding: 7px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            box-shadow: var(--shadow);
+        }
+
+        .search-icon {
+            padding-inline: 10px;
+            font-size: 21px;
+        }
+
+        .search-form input {
+            width: 100%;
+            min-width: 0;
+            height: 46px;
+            border: 0;
+            outline: 0;
+            color: var(--text);
+            background: transparent;
+        }
+
+        .search-form input::placeholder {
+            color: var(--muted);
+        }
+
+        .search-form button {
+            flex-shrink: 0;
+        }
+
+        .popular-searches {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .search-chip {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 30px;
+            padding: 5px 12px;
+            font-size: 12px;
+        }
+
+        .search-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 350px;
+            display: grid;
+            place-items: center;
+        }
+
+        .medical-art {
+            position: relative;
+            width: min(100%, 350px);
+            aspect-ratio: 1;
+            border-radius: 40% 60% 58% 42% / 43% 42% 58% 57%;
+            background: linear-gradient(145deg, #0a7484, #10364c);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            box-shadow: 0 25px 65px rgba(8, 80, 101, 0.2);
+        }
+
+        .medical-art::before,
+        .medical-art::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+        }
+
+        .medical-art::before {
+            width: 250px;
+            height: 250px;
+        }
+
+        .medical-art::after {
+            width: 310px;
+            height: 310px;
+        }
+
+        .medical-cross {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-size: 125px;
+            font-weight: bold;
+            text-shadow: 0 0 35px rgba(69, 214, 177, 0.5);
+        }
+
+        .floating-card {
+            position: absolute;
+            z-index: 2;
+            padding: 12px 15px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .floating-card span {
+            display: block;
+            color: var(--muted);
+            font-weight: normal;
+            font-size: 10px;
+        }
+
+        .floating-one {
+            top: 18%;
+            right: -3%;
+        }
+
+        .floating-two {
+            bottom: 13%;
+            left: -2%;
+        }
+
+        /* =========================
+           4. شريط المميزات
+        ========================= */
+
+        .trust-strip {
+            padding: 22px 0;
+            background: var(--surface);
+            border-block: 1px solid var(--border);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .trust-icon {
+            width: 43px;
+            height: 43px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            background: var(--surface-soft);
+            border-radius: 13px;
+            font-size: 20px;
+        }
+
+        .trust-item strong {
+            display: block;
+            font-size: 13px;
+        }
+
+        .trust-item small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* =========================
+           5. البطاقات
+        ========================= */
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            min-width: 0;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            background: var(--surface-soft);
+            border-radius: 17px;
+            font-size: 27px;
+            margin-bottom: 17px;
+        }
+
+        .card-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--primary);
+            background: var(--surface-soft);
+            border-radius: 30px;
+            padding: 4px 10px;
+            margin-bottom: 12px;
+        }
+
+        .info-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .text-link:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           6. الأمراض
+        ========================= */
+
+        .disease-section {
+            background: var(--surface-soft);
+        }
+
+        .disease-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 17px;
+        }
+
+        .disease-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 21px;
+            border-radius: 18px;
+        }
+
+        .disease-top {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 12px;
+        }
+
+        .disease-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            border-radius: 15px;
+            background: var(--surface-soft);
+            font-size: 23px;
+        }
+
+        .disease-card h3 {
+            font-size: 16px;
+        }
+
+        .disease-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 13px;
+        }
+
+        /* =========================
+           7. منطقة البحث
+        ========================= */
+
+        .search-results {
+            display: none;
+            margin-top: 22px;
+            padding: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .search-results.visible {
+            display: block;
+        }
+
+        .search-results h2 {
+            font-size: 19px;
+            margin-bottom: 15px;
+        }
+
+        .result-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .result-item {
+            display: block;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+        }
+
+        .result-item:hover {
+            border-color: var(--primary);
+        }
+
+        .result-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .result-item p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .no-results {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           8. تنبيه طبي
+        ========================= */
+
+        .notice-box {
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(224, 164, 55, 0.35);
+            background: rgba(224, 164, 55, 0.09);
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .notice-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .notice-box h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .notice-box p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================
+           9. المقالات
+        ========================= */
+
+        .article-card {
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .article-cover {
+            min-height: 150px;
+            display: grid;
+            place-items: center;
+            font-size: 53px;
+            background:
+                radial-gradient(
+                    circle at 70% 30%,
+                    rgba(69, 214, 177, 0.2),
+                    transparent 35%
+                ),
+                var(--surface-soft);
+        }
+
+        .article-body {
+            padding: 22px;
+        }
+
+        .article-body h3 {
+            font-size: 18px;
+            margin-bottom: 9px;
+        }
+
+        .article-body p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           10. قسم نبض
+        ========================= */
+
+        .about-panel {
+            padding: 42px;
+            border-radius: 28px;
+            background: linear-gradient(130deg, #0a354b, #087f8c);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-panel h2 {
+            font-size: clamp(25px, 4vw, 37px);
+            margin-bottom: 14px;
+        }
+
+        .about-panel p {
+            max-width: 760px;
+            color: #d4e9ee;
+            font-size: 15px;
+        }
+
+        .about-tag {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 7px 13px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 30px;
+            font-size: 12px;
+        }
+
+        /* =========================
+           11. الفوتر
+        ========================= */
+
+        .site-footer {
+            padding: 45px 0 20px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-description {
+            color: var(--muted);
+            font-size: 13px;
+            max-width: 370px;
+            margin-top: 14px;
+        }
+
+        .footer-column h3 {
+            font-size: 15px;
+            margin-bottom: 13px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            margin: 8px 0;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* =========================
+           12. الموبايل
+        ========================= */
+
+        @media (max-width: 900px) {
+            .main-nav {
+                gap: 12px;
+            }
+
+            .main-nav a {
+                font-size: 12px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr 0.7fr;
+                gap: 25px;
+            }
+
+            .cards-grid,
+            .disease-grid {
+                grid-template-columns: repeat(2, m
