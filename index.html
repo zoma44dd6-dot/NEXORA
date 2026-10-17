@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#087f72">
+  <meta name="description" content="نبض: محتوى طبي عربي مبسط يساعدك على فهم صحتك.">
+  <title>نبض | صحتك تهمنا</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="نبض - الرئيسية"><span class="brand-mark">✚</span><span>نبض<small>صحتك تهمنا</small></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+    <nav id="nav">
+      <a href="#home">الرئيسية</a><a href="#articles">المقالات</a><a href="#categories">التصنيفات</a><a href="#about">عن نبض</a><a href="#contact">تواصل معنا</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">معلومة صحية بلغة بسيطة</span>
+        <h1>خليك مطمّن،<br><em>وافهم صحتك مع نبض</em></h1>
+        <p>مقالات ومعلومات طبية مبسطة تساعدك على اتخاذ قرارات صحية واعية، من مصادر موثوقة وبأسلوب واضح.</p>
+        <a class="primary-btn" href="#articles">اقرأ أحدث المقالات <span>←</span></a>
+        <div class="hero-note"><span class="pulse">♥</span> المعرفة الصحية بداية العناية بنفسك</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="circle circle-one"></div><div class="circle circle-two"></div>
+        <div class="health-card"><span class="cross">✚</span><div class="heart-line">♡</div><strong>صحتك أولًا</strong><small>خطوة صغيرة لمعلومة مفيدة</small></div>
+        <div class="floating f1">🩺</div><div class="floating f2">🌿</div><div class="floating f3">💧</div>
+      </div>
+    </section>
+
+    <section class="search-wrap" aria-label="البحث عن المقالات">
+      <div class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="ابحث عن موضوع صحي، مثل النوم أو التغذية..." aria-label="ابحث في المقالات"><button id="searchBtn">ابحث</button></div>
+      <p>معلومة واضحة • تصنيفات متنوعة • محتوى باللغة العربية</p>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="section-head"><div><span class="eyebrow">اكتشف حسب اهتمامك</span><h2>التصنيفات الصحية</h2></div><p>اختار المجال اللي تحب تعرف عنه أكتر.</p></div>
+      <div class="category-grid">
+        <button class="category active" data-category="الكل"><span>✦</span><b>كل المقالات</b><small>تصفح كل الموضوعات</small></button>
+        <button class="category" data-category="التغذية"><span>🥗</span><b>التغذية</b><small>عادات غذائية أفضل</small></button>
+        <button class="category" data-category="الصحة النفسية"><span>☁</span><b>الصحة النفسية</b><small>راحة وتوازن</small></button>
+        <button class="category" data-category="النوم"><span>☾</span><b>النوم</b><small>نوم صحي ومريح</small></button>
+        <button class="category" data-category="الوقاية"><span>♡</span><b>الوقاية</b><small>خطوات للحفاظ على صحتك</small></button>
+      </div>
+    </section>
+
+    <section class="section articles-section" id="articles">
+      <div class="section-head"><div><span class="eyebrow">اقرأ وتعلّم</span><h2>أحدث المقالات</h2></div><span class="results" id="resultCount">6 مقالات</span></div>
+      <div class="article-grid" id="articleGrid">
+        <article class="article-card" data-category="التغذية" data-search="شرب الماء الترطيب الجفاف التغذية">
+          <div class="article-art mint"><span>💧</span><label>التغذية</label></div><div class="article-body"><div class="meta">٥ دقائق قراءة</div><h3>كمية الماء التي يحتاجها جسمك يوميًا</h3><p>تعرف على أهمية الترطيب والعوامل التي تؤثر على احتياجك للماء خلال اليوم.</p><button class="read-more" data-article="water">اقرأ المقال <span>←</span></button></div>
+        </article>
+        <article class="article-card" data-category="النوم" data-search="النوم الأرق جودة النوم الراحة">
+          <div class="article-art lavender"><span>🌙</span><label>النوم</label></div><div class="article-body"><div class="meta">٤ دقائق قراءة</div><h3>عادات بسيطة لنوم أفضل</h3><p>خطوات يومية قد تساعدك على تحسين روتين النوم والشعور بالراحة.</p><button class="read-more" data-article="sleep">اقرأ المقال <span>←</span></button></div>
+        </article>
+        <article class="article-card" data-category="الصحة النفسية" data-search="التوتر القلق التنفس الصحة النفسية">
+          <div class="article-art peach"><span>🌿</span><label>الصحة النفسية</label></div><div class="article-body"><div class="meta">٦ دقائق قراءة</div><h3>طرق للتعامل مع التوتر اليومي</h3><p>أفكار عملية للتوقف قليلًا وتنظيم يومك والتعامل مع الضغوط.</p><button class="read-more" data-article="stress">اقرأ المقال <span>←</span></button></div>
+        </article>
+        <article class="article-card" data-category="التغذية" data-search="الخضروات الفاكهة الغذاء المتوازن التغذية">
+          <div class="article-art yellow"><span>🥑</span><label>التغذية</label></div><div class="article-body"><div class="meta">٥ دقائق قراءة</div><h3>كيف تجعل وجبتك أكثر توازنًا؟</h3><p>دليل مبسط لتنوع الطعام وإضافة مجموعات غذائية مختلفة لوجباتك.</p><button class="read-more" data-article="food">اقرأ المقال <span>←</span></button></div>
+        </article>
+        <article class="article-card" data-category="الوقاية" data-search="النشاط البدني الحركة المشي الوقاية">
+          <div class="article-art blue"><span>🚶</span><label>الوقاية</label></div><div class="article-body"><div class="meta">٤ دقائق قراءة</div><h3>الحركة اليومية وأثرها على صحتك</h3><p>كيف تضيف الحركة إلى يومك بطريقة تدريجية تناسب قدراتك.</p><button class="read-more" data-article="move">اقرأ المقال <span>←</span></button></div>
+        </article>
+        <article class="article-card" data-category="الوقاية" data-search="الفحص الدوري الوقاية الطبيب الكشف">
+          <div class="article-art rose"><span>🩺</span><label>الوقاية</label></div><div class="article-body"><div class="meta">٣ دقائق قراءة</div><h3>لماذا نهتم بالفحوصات الدورية؟</h3><p>تعرّف على دور المتابعة الطبية في اكتشاف بعض المشكلات مبكرًا.</p><button class="read-more" data-article="checkup">اقرأ المقال <span>←</span></button></div>
+        </article>
+      </div>
+      <div class="empty-state" id="emptyState" hidden>مفيش مقالات مطابقة للبحث. جرّب كلمة تانية.</div>
+    </section>
+
+    <section class="quote-band"><span class="quote-icon">✚</span><div><h2>صحتك تستحق الاهتمام كل يوم</h2><p>ابدأ بخطوة بسيطة، واسأل مختصًا عندما تحتاج إلى نصيحة طبية شخصية.</p></div><a href="#articles">استكشف المقالات ←</a></section>
+
+    <section class="section about-section" id="about"><div class="about-symbol">✚</div><div><span class="eyebrow">عن منصتنا</span><h2>نبض.. المعلومة الصحية أقرب ليك</h2><p>نبض منصة تثقيفية تقدم محتوى صحيًا عربيًا مبسطًا لمساعدتك على فهم الموضوعات الصحية الشائعة. هدفنا نشر الوعي، وليس تشخيص الأمراض أو استبدال زيارة الطبيب.</p></div></section>
+
+    <section class="contact-section" id="contact"><div><span class="eyebrow">يسعدنا سماعك</span><h2>عندك اقتراح لموضوع؟</h2><p>اكتب فكرتك، وسيفتح لك الموقع تطبيق البريد لإرسالها إذا كان مضبوطًا على جهازك.</p></div><form id="contactForm"><label for="name">اسمك</label><input id="name" required placeholder="اكتب اسمك"><label for="email">بريدك الإلكتروني</label><input id="email" type="email" required placeholder="name@example.com"><label for="message">رسالتك أو اقتراحك</label><textarea id="message" rows="3" required placeholder="اكتب اقتراحك هنا"></textarea><button class="primary-btn" type="submit">إرسال الاقتراح ←</button><p id="formMessage" class="form-message" role="status"></p></form></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">✚</span><span>نبض<small>صحتك تهمنا</small></span></a><p>محتوى تثقيفي عام، لا يغني عن استشارة الطبيب.</p><div class="footer-links"><a href="#about">عن نبض</a><a href="#contact">تواصل معنا</a><a href="privacy.html">الخصوصية</a><a href="disclaimer.html">إخلاء المسؤولية</a></div><small>© <span id="year"></span> نبض. جميع الحقوق محفوظة.</small></footer>
+
+  <dialog id="articleDialog"><button class="dialog-close" id="closeDialog" aria-label="إغلاق">×</button><div id="dialogContent"></div></dialog>
+  <script src="script.js"></script>
+</body>
+</html>
